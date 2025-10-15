@@ -48,13 +48,18 @@
     p{ margin-bottom:15px; }
     ul,ol{ margin-left:25px; margin-bottom:15px; }
     li{ margin-bottom:8px; }
+
     .expandable{ border:1px solid #ddd; border-radius:4px; margin:20px 0; overflow:hidden; }
-    .expandable-header{ background:#f8f9fa; padding:15px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:background .3s; }
+    .expandable-header{
+      background:#f8f9fa; padding:15px; display:flex; justify-content:space-between; align-items:center;
+      transition:background .3s; cursor:pointer; user-select:none;
+    }
     .expandable-header:hover{ background:#e9ecef; }
     .expandable-header h3{ margin:0; color:var(--brand); font-size:1.1em; }
-    .expandable-icon{ font-size:1.5em; color:#0066cc; transition:transform .3s; }
+    .expandable-icon{ font-size:1.5em; color:#0066cc; transition:transform .3s; margin-left:12px; }
     .expandable-content{ max-height:0; overflow:hidden; transition:max-height .3s ease-out; padding:0 15px; }
     .expandable-content.active{ max-height:4000px; padding:15px; transition:max-height .5s ease-in; }
+
     .example-box{ background:#f0f7ff; border-left:3px solid #0066cc; padding:15px; margin:15px 0; }
     .warning-box{ background:#fff3cd; border-left:3px solid var(--warn); padding:15px; margin:15px 0; }
     .tip-box{ background:#d4edda; border-left:3px solid var(--ok); padding:15px; margin:15px 0; }
@@ -149,9 +154,9 @@
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>Fyra nivåer av AI-villkor i examination (mallar)</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <div class="template-box">
@@ -197,9 +202,9 @@ Nivå 4: Integrerat verktyg (examinerbart)
       <p>Det mest kraftfulla greppet är att göra själva interaktionen med AI bedömningsbar. Då flyttas fokus från ”om” studenten använt AI till ”hur” hen tänkt och förbättrat resultatet.</p>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>Exempelformer</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <div class="example-box">
@@ -233,9 +238,9 @@ Nivå 4: Integrerat verktyg (examinerbart)
       </table>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>4.1 Salstentamen – strategier och modernisering</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <p>I sal kan du pröva resonemang och metodförståelse utan externa verktyg. Sikta på uppgifter som kräver tillämpning på nya problem, syntes av kursens olika delar och explicita motiveringar. I vissa kurser går det att modernisera formatet genom datorsal med godkända resurser. En mer avancerad variant är kontrollerad AI-användning under övervakning för en avgränsad del – ett pilotgrepp som kräver tekniskt och administrativt stöd.</p>
@@ -247,9 +252,9 @@ Nivå 4: Integrerat verktyg (examinerbart)
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>4.2 Hemtentamen – från produkt till process</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <p>Hemtentamen gynnas av ett skifte där vägen till resultatet blir synlig och verifierbar. En kort individuell muntlig eller övervakad skriftlig uppföljning efter inlämning gör stor skillnad; vetskapen om uppföljningen höjer integriteten och kvaliteten. Låt arbetet växa fram genom delmoment – problemformulering, kommenterad litteraturlista, utkast med formativ feedback – och kräv en kort ändringslogg som binder samman processen.</p>
@@ -273,9 +278,9 @@ Nivå 4: Integrerat verktyg (examinerbart)
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>4.3 Muntlig examination – maximera interaktion</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <p>Muntliga moment prövar förståelse i realtid och är adaptiv i sin natur. Låt en kort presentation följas av en riktad frågestund där studenten får förklara vägval och alternativ. Seminarieformat med opposition gör dessutom tänkandet synligt i dialog med andra. Om AI använts i förberedelserna, räcker en AI-deklaration – det viktiga är hur studenten kan stå för sitt material.</p>
@@ -287,9 +292,9 @@ Nivå 4: Integrerat verktyg (examinerbart)
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>4.4 Projektarbete och programmering – transparens och ansvar</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <p>I längre projekt är spårbarhet och individuellt ansvar nyckeln. Använd versionshantering med regelbundna commits och be om korta loggar över arbetsprocess och verktyg (inklusive AI). Komplettera med individuella code walkthroughs eller korta uppföljningar där var och en förklarar val, buggar och kompromisser. Bedöm inte bara att något fungerar – bedöm varför just den lösningen valdes, vilka alternativ som fanns och vilka begränsningar som kvarstår, inklusive etiska och säkerhetsmässiga överväganden.</p>
@@ -299,9 +304,9 @@ Nivå 4: Integrerat verktyg (examinerbart)
       <h2>5. Bedömningsstöd och mallar</h2>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>5.1 Bedömningsmatris (standardmall – justera efter kursmål)</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <table>
@@ -340,9 +345,9 @@ HUM/SAM
       <h2>6. Mallar för kommunikation med studenter</h2>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>6.1 AI-deklaration (för studenter att fylla i)</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <div class="template-box">
@@ -363,9 +368,9 @@ _________________________________
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>6.2 Kort text om AI-villkor för kurs-PM (nivåer)</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <div class="template-box">
@@ -388,9 +393,9 @@ Nivå 4: Integrerat verktyg (examinerbart)
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>6.3 Struktur för hemtentamen med delmoment</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <div class="template-box">
@@ -407,9 +412,9 @@ Muntlig uppföljning (v5): 10–15 min – 20 %
       <h2>7. Juridik, integritet och likvärdighet</h2>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>7.0 Faktaruta (stabil): upphovsrätt, GDPR, AI-förordningen</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <p>Upphovsrätt: Studenters inlämnade arbeten skyddas av upphovsrätt och får inte användas för modellträning eller publicering utan tillstånd. AI-genererat material kan sakna upphovsrätt om ingen väsentlig mänsklig originalitet tillförts – var därför tydlig med vem som är upphovsperson till den examinerade prestationen.</p>
@@ -461,19 +466,19 @@ Muntlig uppföljning (v5): 10–15 min – 20 %
 
       <h2>10. Vanliga frågor</h2>
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Måste vi använda AI i undervisningen?"</h3><span class="expandable-icon">+</span></div>
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false"><h3>"Måste vi använda AI i undervisningen?"</h3><span class="expandable-icon" aria-hidden="true">+</span></div>
         <div class="expandable-content"><p>Nej. Men studenter gör det och behöver förstå när och hur tekniken kan – och inte bör – användas. Att ignorera AI skapar en artificiell lärmiljö.</p></div>
       </div>
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Kan jag lita på AI-detektorer?"</h3><span class="expandable-icon">+</span></div>
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false"><h3>"Kan jag lita på AI-detektorer?"</h3><span class="expandable-icon" aria-hidden="true">+</span></div>
         <div class="expandable-content"><p>Inte som ensamt bevis. Arbeta med processunderlag och kort muntlig uppföljning. Följ gällande rutiner vid misstanke.</p></div>
       </div>
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Ökar inte arbetsbördan?"</h3><span class="expandable-icon">+</span></div>
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false"><h3>"Ökar inte arbetsbördan?"</h3><span class="expandable-icon" aria-hidden="true">+</span></div>
         <div class="expandable-content"><p>I början kan det kräva viss omdesign. Använd återanvändbara mallar, kamratrespons och korta uppföljningar – vinsten är bättre validitet och färre ärenden om vilseledande.</p></div>
       </div>
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Är detta rättssäkert?"</h3><span class="expandable-icon">+</span></div>
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false"><h3>"Är detta rättssäkert?"</h3><span class="expandable-icon" aria-hidden="true">+</span></div>
         <div class="expandable-content"><p>Ja, under förutsättning att ramarna är tydliga och lika för alla, att processen dokumenteras och att bedömningen prövar det som anges i kursmålen. Håll människan i loopen i bedömningen.</p></div>
       </div>
 
@@ -516,7 +521,7 @@ Muntlig uppföljning (v5): 10–15 min – 20 %
     <div class="container">
       <header>
         <h1>Assessment and Generative AI</h1>
-      <p class="subtitle">Guidance for teachers and examiners</p>
+        <p class="subtitle">Guidance for teachers and examiners</p>
       </header>
 
       <div class="tldr">
@@ -546,9 +551,9 @@ Muntlig uppföljning (v5): 10–15 min – 20 %
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>Four levels of AI conditions in assessment (templates)</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <div class="template-box">
@@ -593,9 +598,9 @@ Level 4: Integrated tool (assessed)
       <p>The most powerful move is to make the interaction with AI itself assessable. This shifts focus from “if” a student used AI to “how” they thought and improved the result.</p>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>Example formats</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <div class="example-box">
@@ -629,9 +634,9 @@ Level 4: Integrated tool (assessed)
       </table>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>4.1 Invigilated exam — strategies and modernisation</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <p>In-hall exams allow you to test reasoning and methodological understanding without external tools. Aim for tasks requiring transfer to novel problems, synthesis across course parts, and explicit justifications. In some courses you can modernise via computer rooms with approved resources. A more advanced variant is controlled AI use under supervision for a limited part—requiring technical and administrative support.</p>
@@ -643,9 +648,9 @@ Level 4: Integrated tool (assessed)
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>4.2 Take-home exam — from product to process</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <p>Take-home exams benefit from a shift where the path to the result is visible and verifiable. A short individual oral or supervised written follow-up after submission makes a big difference; awareness of the follow-up raises integrity and quality. Let the work develop through milestones—problem formulation, annotated reading list, draft with formative feedback—and require a brief change log tying the process together.</p>
@@ -669,9 +674,9 @@ Level 4: Integrated tool (assessed)
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>4.3 Oral examination — maximise interaction</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <p>Oral moments test understanding in real time and are inherently adaptive. Follow a short presentation with targeted questioning where the student explains choices and alternatives. Seminar formats with opposition also make thinking visible through dialogue. If AI was used in preparation, an AI declaration suffices—the key is how well the student can stand by the material.</p>
@@ -683,9 +688,9 @@ Level 4: Integrated tool (assessed)
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>4.4 Project work and programming — transparency and accountability</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <p>In longer projects, traceability and individual responsibility are key. Use version control with regular commits and ask for brief logs of the work process and tools (including AI). Complement with individual code walkthroughs or short follow-ups where each member explains choices, bugs, and trade-offs. Do not only assess that something works—assess why that solution was chosen, what alternatives existed, and which limitations remain, including ethical and security considerations.</p>
@@ -695,9 +700,9 @@ Level 4: Integrated tool (assessed)
       <h2>5. Assessment support and templates</h2>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>5.1 Rubric (standard template—adjust to learning outcomes)</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <table>
@@ -736,9 +741,9 @@ HUM/SOC
       <h2>6. Templates for student communication</h2>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>6.1 AI declaration (for students to complete)</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <div class="template-box">
@@ -759,9 +764,9 @@ _________________________________
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>6.2 Short text on AI conditions for the course PM (levels)</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <div class="template-box">
@@ -784,9 +789,9 @@ Level 4: Integrated tool (assessed)
       </div>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>6.3 Structure for take-home exams with milestones</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <div class="template-box">
@@ -803,9 +808,9 @@ Oral follow-up (w5): 10–15 min — 20%
       <h2>7. Law, privacy and equity</h2>
 
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)">
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false">
           <h3>7.0 Facts (stable): copyright, GDPR, EU AI Act</h3>
-          <span class="expandable-icon">+</span>
+          <span class="expandable-icon" aria-hidden="true">+</span>
         </div>
         <div class="expandable-content">
           <p>Copyright: Students’ submitted works are protected and may not be used for model training or publication without permission. AI-generated material may lack copyright if no substantial human originality has been added—be clear about who is the author of the assessed performance.</p>
@@ -857,19 +862,19 @@ Oral follow-up (w5): 10–15 min — 20%
 
       <h2>10. Frequently asked questions</h2>
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Do we have to use AI in teaching?"</h3><span class="expandable-icon">+</span></div>
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false"><h3>"Do we have to use AI in teaching?"</h3><span class="expandable-icon" aria-hidden="true">+</span></div>
         <div class="expandable-content"><p>No. But students do, and they need to understand when and how the technology can—and should not—be used. Ignoring AI creates an artificial learning environment.</p></div>
       </div>
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Can I trust AI detectors?"</h3><span class="expandable-icon">+</span></div>
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false"><h3>"Can I trust AI detectors?"</h3><span class="expandable-icon" aria-hidden="true">+</span></div>
         <div class="expandable-content"><p>Not as sole evidence. Work with process artefacts and a short oral follow-up. Follow applicable procedures in case of suspicion.</p></div>
       </div>
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Won’t this increase workload?"</h3><span class="expandable-icon">+</span></div>
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false"><h3>"Won’t this increase workload?"</h3><span class="expandable-icon" aria-hidden="true">+</span></div>
         <div class="expandable-content"><p>There may be initial redesign. Use reusable templates, peer feedback and short follow-ups—the payoff is better validity and fewer misconduct cases.</p></div>
       </div>
       <div class="expandable">
-        <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Is this legally sound?"</h3><span class="expandable-icon">+</span></div>
+        <div class="expandable-header" role="button" tabindex="0" aria-expanded="false"><h3>"Is this legally sound?"</h3><span class="expandable-icon" aria-hidden="true">+</span></div>
         <div class="expandable-content"><p>Yes—provided rules are clear and equal for all, the process is documented, and assessment tests what the learning outcomes specify. Keep a human in the loop.</p></div>
       </div>
 
@@ -909,77 +914,79 @@ Oral follow-up (w5): 10–15 min — 20%
 
   <script>
   (function () {
-    // ---- Helpers ----
-    function $ (sel, root=document) { return root.querySelector(sel); }
-    function $$ (sel, root=document) { return Array.from(root.querySelectorAll(sel)); }
-
-    // ---- Expanders ----
-    function toggleExpand(header){
-      const content = header.nextElementSibling;
-      const icon = header.querySelector('.expandable-icon');
-      const isActive = content.classList.toggle('active');
-      if (icon) icon.textContent = isActive ? '−' : '+';
-    }
-    // Bind expanders
-    $$('.expandable-header').forEach(h => {
-      if (!h.hasAttribute('data-bound')) {
-        h.addEventListener('click', () => toggleExpand(h));
-        h.setAttribute('data-bound','1');
-      }
-    });
-    // Make available for inline onclick
-    window.toggleExpand = toggleExpand;
-
     // ---- Language tabs ----
-    const tabSv = $('#tab-sv');
-    const tabEn = $('#tab-en');
-    const panelSv = $('#lang-sv');
-    const panelEn = $('#lang-en');
+    const tabSv = document.getElementById('tab-sv');
+    const tabEn = document.getElementById('tab-en');
+    const panelSv = document.getElementById('lang-sv');
+    const panelEn = document.getElementById('lang-en');
 
     function setLang(lang){
       const isSv = (lang === 'sv');
-      if (tabSv && tabEn) {
-        tabSv.setAttribute('aria-selected', String(isSv));
-        tabEn.setAttribute('aria-selected', String(!isSv));
-      }
-      if (panelSv && panelEn) {
-        panelSv.classList.toggle('active', isSv);
-        panelEn.classList.toggle('active', !isSv);
-        panelSv.setAttribute('aria-hidden', String(!isSv));
-        panelEn.setAttribute('aria-hidden', String(isSv));
-      }
+      tabSv?.setAttribute('aria-selected', String(isSv));
+      tabEn?.setAttribute('aria-selected', String(!isSv));
+      panelSv?.classList.toggle('active', isSv);
+      panelEn?.classList.toggle('active', !isSv);
+      panelSv?.setAttribute('aria-hidden', String(!isSv));
+      panelEn?.setAttribute('aria-hidden', String(isSv));
       try { localStorage.setItem('ai-guide-lang', lang); } catch(e){}
-      if (location.hash !== '#' + lang) {
-        history.replaceState(null, '', '#' + lang);
-      }
+      if (location.hash !== '#' + lang) history.replaceState(null, '', '#' + lang);
     }
 
     function initLang(){
-      let langFromHash = (location.hash || '').replace('#','').toLowerCase();
+      const fromHash = (location.hash || '').replace('#','').toLowerCase();
       let stored = null;
       try { stored = localStorage.getItem('ai-guide-lang'); } catch(e){}
-      let browser = (navigator.language || 'sv').toLowerCase().startsWith('sv') ? 'sv' : 'en';
-
-      const lang = (langFromHash === 'sv' || langFromHash === 'en') ? langFromHash
+      const browser = (navigator.language || 'sv').toLowerCase().startsWith('sv') ? 'sv' : 'en';
+      const lang = (fromHash === 'sv' || fromHash === 'en') ? fromHash
                  : (stored === 'sv' || stored === 'en') ? stored
                  : browser;
-
       setLang(lang);
-
-      if (tabSv) tabSv.addEventListener('click', () => setLang('sv'));
-      if (tabEn) tabEn.addEventListener('click', () => setLang('en'));
-
+      tabSv?.addEventListener('click', () => setLang('sv'));
+      tabEn?.addEventListener('click', () => setLang('en'));
       window.addEventListener('hashchange', () => {
         const h = (location.hash || '').replace('#','').toLowerCase();
         if (h === 'sv' || h === 'en') setLang(h);
       });
     }
 
+    // ---- Expanders (event delegation: click + keyboard) ----
+    function toggleExpander(header){
+      const content = header.nextElementSibling;
+      if (!content || !content.classList.contains('expandable-content')) return;
+      const isActive = content.classList.toggle('active');
+      const icon = header.querySelector('.expandable-icon');
+      if (icon) icon.textContent = isActive ? '−' : '+';
+      header.setAttribute('aria-expanded', String(isActive));
+    }
+
+    document.addEventListener('click', (e) => {
+      const header = e.target.closest('.expandable-header');
+      if (header) {
+        e.preventDefault();
+        toggleExpander(header);
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('expandable-header')) {
+        e.preventDefault();
+        toggleExpander(e.target);
+      }
+    });
+
+    // Init on DOM ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initLang);
     } else {
       initLang();
     }
+
+    // Expand all before printing
+    window.addEventListener('beforeprint', () => {
+      document.querySelectorAll('.expandable-content').forEach(c => c.classList.add('active'));
+      document.querySelectorAll('.expandable-header').forEach(h => h.setAttribute('aria-expanded','true'));
+      document.querySelectorAll('.expandable-icon').forEach(i => i.textContent = '−');
+    });
   })();
   </script>
 </body>

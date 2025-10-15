@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examination och generativ AI - Vägledning</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        header { border-bottom: 4px solid #003d7a; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { color: #003d7a; font-size: 2em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.1em; margin-bottom: 20px; }
+        .tldr { background: #e8f4f8; border-left: 4px solid #0066cc; padding: 20px; margin: 30px 0; border-radius: 4px; }
+        .tldr h2 { color: #0066cc; font-size: 1.3em; margin-bottom: 10px; }
+        h2 { color: #003d7a; font-size: 1.5em; margin-top: 40px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #e0e0e0; }
+        h3 { color: #0066cc; font-size: 1.2em; margin-top: 25px; margin-bottom: 10px; }
+        h4 { color: #0066cc; margin: 10px 0; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-left: 25px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        .expandable { border: 1px solid #ddd; border-radius: 4px; margin: 20px 0; overflow: hidden; }
+        .expandable-header { background: #f8f9fa; padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; }
+        .expandable-header:hover { background: #e9ecef; }
+        .expandable-header h3 { margin: 0; color: #003d7a; font-size: 1.1em; }
+        .expandable-icon { font-size: 1.5em; color: #0066cc; transition: transform 0.3s; }
+        .expandable-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding: 0 15px; }
+        .expandable-content.active { max-height: 4000px; padding: 15px; transition: max-height 0.5s ease-in; }
+        .example-box { background: #f0f7ff; border-left: 3px solid #0066cc; padding: 15px; margin: 15px 0; }
+        .warning-box { background: #fff3cd; border-left: 3px solid #ffc107; padding: 15px; margin: 15px 0; }
+        .tip-box { background: #d4edda; border-left: 3px solid #28a745; padding: 15px; margin: 15px 0; }
+        .checklist { background: #f8f9fa; padding: 20px; border-radius: 4px; margin: 20px 0; }
+        .checklist-item { padding: 8px 0; border-bottom: 1px solid #dee2e6; }
+        .checklist-item:last-child { border-bottom: none; }
+        .checklist-item:before { content: "☐ "; color: #0066cc; font-weight: bold; margin-right: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border: 1px solid #ddd; vertical-align: top; }
+        th { background: #003d7a; color: white; font-weight: bold; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        .template-box { background: #fff; border: 2px dashed #0066cc; padding: 15px; margin: 15px 0; font-family: monospace; font-size: 0.95em; white-space: pre-wrap; }
+        footer { margin-top: 50px; padding-top: 20px; border-top: 2px solid #e0e0e0; color: #666; font-size: 0.9em; }
+        .contact-box { background: #f8f9fa; padding: 20px; border-radius: 4px; margin: 20px 0; }
+        strong { color: #003d7a; }
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; padding: 20px; }
+            .expandable-content { max-height: none !important; padding: 15px !important; }
+            .expandable-icon { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Examination och generativ AI</h1>
+            <p class="subtitle">Vägledning för lärare och examinatorer</p>
+        </header>
+
+        <div class="tldr">
+            <h2>I korthet</h2>
+            <p>Flytta fokus från övervakning till pedagogik. Låt AI-användning vara transparent, bedöm arbetsprocessen – inte bara slutprodukten – och formulera uppgifter som kräver mänsklig förståelse. Kombinera skriftligt med muntligt, förankra i kursens kontext och var tydlig mot studenterna.</p>
+        </div>
+
+        <h2>1. Utgångspunkt: En pedagogisk strategi</h2>
+        <p>Generativ AI är en del av studenternas framtida arbetsliv. Ett rent förbud riskerar därför att skapa en simulerad lärmiljö som inte prövar det vi egentligen vill mäta. Mer fruktbart är att syna våra examinationer: om en uppgift enkelt kan lösas av ett generellt verktyg, pekar det på att uppgiften alltid haft problem med att vissa studenter kan få extern hjälp och ibland att uppgiften testar lägre färdigheter än kursmålen avser.</p>
+        <p>Strategin är enkel att formulera men kräver hantverk i genomförandet: Odla studenternas AI-litteracitet, pröva högre ordningens tänkande och synliggör processen. När studenter förstår vad som förväntas, ser relevansen och får visa hur de tänkt, minskar incitamenten till genvägar samtidigt som kvaliteten höjs.</p>
+        <p>Rekommendation: Där AI är didaktiskt motiverat tillåt – men tvinga inte studenter att använda sig av det som stöd i examinerande moment. Förankra också bedömningen i process, källkritik och muntliga inslag så att den egna förståelsen blir central.</p>
+
+        <div class="checklist" aria-label="Definitioner">
+            <h3>Definitioner</h3>
+            <p>Generativ AI avser verktyg som kan skapa text, bild, kod m.m. utifrån instruktioner.</p>
+            <p>AI-deklaration är studentens korta redovisning av om och hur AI använts.</p>
+            <p>Vilseledande handlar om otillåtna hjälpmedel eller metoder som döljer studentens egen prestation.</p>
+        </div>
+
+        <h2>2. Grundläggande principer</h2>
+
+        <h3>2.1 Kvalitet och meningsfullhet före kontroll</h3>
+        <p>Studenter fuskar mindre när syftet med examinationen är tydligt, när uppgiften upplevs relevant för framtida praktik och när det finns rimliga förutsättningar att lyckas. Kontinuerlig bedömning – där arbetet växer fram i etapper och återkoppling ges under processen – är mer robust än enstaka, sårbara kontrollstationer.</p>
+
+        <h3>2.2 Tydlig kommunikation är nödvändigt</h3>
+        <p>Otydliga instruktioner är en genväg till missförstånd. Varje examinationsmoment behöver skriftliga villkor för AI: om det är tillåtet, i vilka delar och hur användningen ska redovisas. När reglerna är tydliga redan i kursinformation och uppgiftsbeskrivningar blir både lärande och rättssäkerhet bättre.</p>
+
+        <div class="warning-box">
+            <p>Kärnkrav: Skriv in om AI är tillåtet, hur det får användas och hur det ska redovisas (AI-deklaration).</p>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>Fyra nivåer av AI-villkor i examination (mallar)</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <div class="template-box">
+Nivå 1: Strikt förbud
+"I denna examination är all användning av generativa AI-verktyg otillåten. Allt inlämnat material ska vara i sin helhet skapat av dig som student. Otillåten användning betraktas som vilseledande."
+                </div>
+                <div class="template-box">
+Nivå 2: Begränsat stöd
+"Du får använda generativa AI-verktyg för avgränsade syften (t.ex. idéer, språkstöd eller förklaring av begrepp). Analys, argumentation och textproduktion ska vara ditt eget arbete. Redovisa användningen i AI-deklarationen."
+                </div>
+                <div class="template-box">
+Nivå 3: Tillåtet – inte obligatoriskt
+"Du får använda generativa AI-verktyg i denna uppgift, men det är inte ett krav. Bedömningen fokuserar på din process, källhantering och självständiga analys. Redovisa AI-användningen i AI-deklarationen och var beredd på kort muntlig uppföljning."
+                </div>
+                <div class="template-box">
+Nivå 4: Integrerat verktyg (examinerbart)
+"Du ska använda ett godkänt generativt AI-verktyg för ett första utkast på [text/kod/lösning]. Examinationen baseras på din förmåga att kritiskt granska, faktakontrollera, förbättra och motivera dina val med stöd i kurslitteraturen. Bifoga AI-deklaration med centrala prompts och en kort metareflektion."
+                </div>
+            </div>
+        </div>
+
+        <h3>2.3 Gemensamt ansvar och kollegialt stöd</h3>
+        <p>Utvecklingen blir hållbar när kollegiet drar åt samma håll. Ta fram gemensamma mallar, dela exempel och förankra förändringarna på programnivå så att progressionen i utbildningen blir tydlig och konsekvent.</p>
+
+        <h3>2.4 Kultur och kommunikation</h3>
+        <p>Ta tid i kursstart för att tala om vad som bedöms (process, resonemang, källkritik), varför ren produktkontroll inte räcker och hur överberoende av AI faktiskt försvagar egna färdigheter. När studenter förstår logiken minskar frestelsen att ta genvägar.</p>
+        <p>Akademisk hederlighet byggs med tydlighet och förankring. Studenter behöver veta vad som gäller - vad som är tillåtet och de behöver se att reglerna också tillämpas. När förväntningar förklaras och delas av både lärare och studenter, minskar benägenheten till fusk; dessutom spelar upplevd förutsägbarhet i hanteringen och kännedom om möjliga påföljder en avskräckande roll. Detta är inte ”hårdare tag” för sin egen skull, utan en del av att skapa en rättvis och begriplig lärmiljö för studenterna.</p>
+
+        <h3>2.5 Testa dina frågor i en AI</h3>
+        <p>Prova kritiska tentafrågor och hemuppgifter i en generativ AI innan publicering. Om svaret blir så pass användbart att det kortar hela resan från problem till produkt: designa om, flytta till övervakad miljö eller komplettera med muntligt inslag.</p>
+
+        <h2>3. AI som pedagogisk resurs</h2>
+        <p>AI behöver inte bara vara något som övervakas – det kan också vara en vettig arbetskamrat. För lärare kan det spara tid och energi i förarbetet: utkast till frågor utifrån lärandemål, första versioner av bedömningsmatriser eller case som sedan kvalitetssäkras. Poängen är densamma varje gång: AI är ett idélager, inte en ersättning för professionellt omdöme.</p>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>3.1 Vägled studenters AI-användning för lärande</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <h4>Exempel på konstruktiv användning</h4>
+                <p>För begreppsfördjupning kan studenten be om förklaringar på olika nivåer och korta, konkreta exempel. För idégenerering kan AI hjälpa till att bredda infallsvinklar och formulera jämförbara forskningsfrågor. Som språkstöd kan det ge form- och strukturfeedback, särskilt värdefullt för andraspråksstudenter. Ansvarsfördelningen är alltid tydlig: studenten bär ansvaret för innehållet, källorna och etiken.</p>
+            </div>
+        </div>
+
+        <h3>3.2 Utveckla kritisk AI-litteracitet genom examination</h3>
+        <p>Det mest kraftfulla greppet är att göra själva interaktionen med AI bedömningsbar. Då flyttas fokus från ”om” studenten använt AI till ”hur” hen tänkt och förbättrat resultatet.</p>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>Exempelformer</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <div class="example-box">
+                    <h4>Kritisk granskning och förbättring</h4>
+                    <p>Ge en AI-genererad text inom kursens område. Uppgiften är att identifiera fel och brister, korrigera med stöd i tillförlitliga källor och motivera förbättringarna.</p>
+                </div>
+                <div class="example-box">
+                    <h4>Jämförande analys</h4>
+                    <p>Ställ samma komplexa fråga till minst två modeller och analysera skillnader i perspektiv, antaganden och möjliga bias.</p>
+                </div>
+                <div class="example-box">
+                    <h4>Process och metareflektion</h4>
+                    <p>Lämna in centrala prompts och bearbetningar samt en reflektion över vad som fungerade, vad som vilseledde och hur interaktionen påverkade det egna lärandet.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>4. Praktisk verktygslåda per examinationsform</h2>
+        <p>Olika format bjuder på olika möjligheter och risker. Tabellens översikt visar var tyngdpunkten brukar ligga.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Format</th>
+                    <th>Risk</th>
+                    <th>Primär strategi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Salstentamen</td>
+                    <td>Låg</td>
+                    <td>Frågor som kräver tillämpning och syntes</td>
+                </tr>
+                <tr>
+                    <td>Hemtentamen</td>
+                    <td>Hög</td>
+                    <td>Muntlig uppföljning och processbedömning</td>
+                </tr>
+                <tr>
+                    <td>Muntlig examination</td>
+                    <td>Låg</td>
+                    <td>Följdfrågor och interaktivitet</td>
+                </tr>
+                <tr>
+                    <td>Projektarbete</td>
+                    <td>Medel</td>
+                    <td>Processdokumentation och demonstration</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>4.1 Salstentamen – strategier och modernisering</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <p>I sal kan du pröva resonemang och metodförståelse utan externa verktyg. Sikta på uppgifter som kräver tillämpning på nya problem, syntes av kursens olika delar och explicita motiveringar. I vissa kurser går det att modernisera formatet genom datorsal med godkända resurser. En mer avancerad variant är kontrollerad AI-användning under övervakning för en avgränsad del – ett pilotgrepp som kräver tekniskt och administrativt stöd.</p>
+                <div class="example-box">
+                    <h4>Exempel</h4>
+                    <p>"Du får använda formelsamling och angivna referensblad. För full poäng: visa metodval, motivera antaganden och kommentera rimligheten i resultatet."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>4.2 Hemtentamen – från produkt till process</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <p>Hemtentamen gynnas av ett skifte där vägen till resultatet blir synlig och verifierbar. En kort individuell muntlig eller övervakad skriftlig uppföljning efter inlämning gör stor skillnad; vetskapen om uppföljningen höjer integriteten och kvaliteten. Låt arbetet växa fram genom delmoment – problemformulering, kommenterad litteraturlista, utkast med formativ feedback – och kräv en kort ändringslogg som binder samman processen.</p>
+                <h4>Delmoment som synliggör processen</h4>
+                <ul>
+                    <li>Problemformulering/plan</li>
+                    <li>Kommenterad litteraturlista</li>
+                    <li>Utkast med återkoppling från interaktion med generativ AI</li>
+                    <li>Ändringslogg mellan utkast och slutversion</li>
+                </ul>
+                <div class="example-box">
+                    <h4>Exempel – samhällsvetenskap</h4>
+                    <p>"Analysera hur begrepp X används i ett lokalt fall Y. Bifoga AI-deklaration."</p>
+                    <p>Delmoment: 1) Frågeställning, 2) Disposition + källor, 3) Slutversion + ändringslogg.</p>
+                </div>
+                <div class="example-box">
+                    <h4>Exempel – teknik</h4>
+                    <p>"Bearbeta givna mätdata. Redovisa analyskedja, visualisera resultat och diskutera felkällor. Om AI har använts: bifoga centrala prompts och motivera ändringar."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>4.3 Muntlig examination – maximera interaktion</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <p>Muntliga moment prövar förståelse i realtid och är adaptiv i sin natur. Låt en kort presentation följas av en riktad frågestund där studenten får förklara vägval och alternativ. Seminarieformat med opposition gör dessutom tänkandet synligt i dialog med andra. Om AI använts i förberedelserna, räcker en AI-deklaration – det viktiga är hur studenten kan stå för sitt material.</p>
+                <div class="example-box">
+                    <h4>Uppgiftsstruktur</h4>
+                    <p>"Presentera lösningen (5 min) och försvara metodvalen. Frågorna fokuserar på vilka alternativ som övervägdes och varför de förkastades."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>4.4 Projektarbete och programmering – transparens och ansvar</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <p>I längre projekt är spårbarhet och individuellt ansvar nyckeln. Använd versionshantering med regelbundna commits och be om korta loggar över arbetsprocess och verktyg (inklusive AI). Komplettera med individuella code walkthroughs eller korta uppföljningar där var och en förklarar val, buggar och kompromisser. Bedöm inte bara att något fungerar – bedöm varför just den lösningen valdes, vilka alternativ som fanns och vilka begränsningar som kvarstår, inklusive etiska och säkerhetsmässiga överväganden.</p>
+            </div>
+        </div>
+
+        <h2>5. Bedömningsstöd och mallar</h2>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>5.1 Bedömningsmatris (standardmall – justera efter kursmål)</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kriterium</th>
+                            <th>Beskrivning</th>
+                            <th>Vikt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Problemförståelse &amp; kontext</td>
+                            <td>Preciserar relevant frågeställning i kursens/professionens ramar</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td>Metod &amp; spårbarhet</td>
+                            <td>Motiverar metodval; visar arbetsgång, mellanresultat och ändringar</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Källor &amp; källkritik</td>
+                            <td>Använder relevanta källor; verifierar påståenden; redovisar AI-användning</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Analys &amp; omdöme</td>
+                            <td>Välgrundade slutsatser; begränsningar och alternativ diskuteras</td>
+                            <td>25%</td>
+                        </tr>
+                        <tr>
+                            <td>Kommunikation</td>
+                            <td>Struktur, fackspråk och visualisering stödjer budskapet</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td>Integritet &amp; etik</td>
+                            <td>Följer instruktioner; hanterar data och AI enligt riktlinjer</td>
+                            <td>5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>5.3 Frågor till muntlig uppföljning (kopiera/klistra in)</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <p>Exempel på frågor att ställa i samband med en muntlig uppföljning.</p>
+                <div class="template-box">
+Allmänna
+•	Beskriv din metodkedja från problemformulering till slutsats.
+•	Vilka två alternativ övervägde du men valde bort – och varför?
+•	Visa en källa som påverkade din slutsats mest och motivera dess kvalitet.
+STEM
+•	Vad händer om vi ändrar denna parameter/antagande?
+•	Vilken felkälla dominerar och hur uppskattade du den?
+•	Jämför din lösning med en standardmetod – styrkor/svagheter?
+HUM/SAM
+•	Vilken teoretisk position motsäger din slutsats och hur bemöter du den?
+•	Hur hade resultatet sett ut med ett annat material/urval?
+•	Vilka etiska avvägningar gjorde du i din analys?
+                </div>
+            </div>
+        </div>
+
+        <h2>6. Mallar för kommunikation med studenter</h2>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>6.1 AI-deklaration (för studenter att fylla i)</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <div class="template-box">
+AI-DEKLARATION
+Kurs: _______________ Student: _______________
+1. Vilka generativa AI-verktyg har använts? (ange namn och ev. version)
+_________________________________
+2. I vilka delar av arbetet användes AI?
+☐ Idégenerering/brainstorming · ☐ Språkstöd/språkgranskning · ☐ Kodgenerering/felsökning · ☐ Källsökning/faktakontroll · ☐ Annat: _____________
+3. Beskriv kort hur AI användes (2–3 centrala prompts och din användning av dem)
+_________________________________
+4. Hur verifierades/bearbetades AI-outputen? (källor, ändringar, motiveringar)
+_________________________________
+5. Etiska överväganden (bias, integritet, upphovsrätt)
+_________________________________
+                </div>
+            </div>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>6.2 Kort text om AI-villkor för kurs-PM (nivåer)</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <div class="template-box">
+Nivå 1: Strikt förbud
+"Användning av generativa AI-verktyg är inte tillåten under denna examination. Otillåten användning kan bedömas som vilseledande."
+                </div>
+                <div class="template-box">
+Nivå 2: Begränsat stöd
+"Generativa AI-verktyg får användas för idéer, språk och tekniska förslag. Du ansvarar för innehållet och ska granska/omformulera allt du använder. Redovisa användningen i AI-deklarationen."
+                </div>
+                <div class="template-box">
+Nivå 3: Tillåtet – inte obligatoriskt
+"Du får använda generativ AI i denna uppgift men det är inte ett krav. Bedömningen fokuserar på process, källhantering och självständig analys. Kort muntlig uppföljning kan förekomma."
+                </div>
+                <div class="template-box">
+Nivå 4: Integrerat verktyg (examinerbart)
+"Du ska använda ett godkänt generativt AI-verktyg för ett första utkast på [text/kod/lösning]. Bedömningen gäller hur du kritiserar, faktakontrollerar och förbättrar AI-outputen. Bifoga prompthistorik och metareflektion."
+                </div>
+            </div>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>6.3 Struktur för hemtentamen med delmoment</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <div class="template-box">
+UPPGIFTSSTRUKTUR
+Del 1 (v1): Problemformulering – 10 %
+Del 2 (v2): Disposition + huvudkällor – 15 %
+Del 3 (v3): Utkast + kamratrespons – 20 % (inkl. kvalitet på respons)
+Slut (v4): Slutversion + ändringslogg + AI-deklaration – 35 %
+Muntlig uppföljning (v5): 10–15 min – 20 %
+                </div>
+            </div>
+        </div>
+
+        <h2>7. Juridik, integritet och likvärdighet</h2>
+
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)">
+                <h3>7.0 Faktaruta (stabil): upphovsrätt, GDPR, AI-förordningen</h3>
+                <span class="expandable-icon">+</span>
+            </div>
+            <div class="expandable-content">
+                <p>Upphovsrätt: Studenters inlämnade arbeten skyddas av upphovsrätt och får inte användas för modellträning eller publicering utan tillstånd. AI-genererat material kan sakna upphovsrätt om ingen väsentlig mänsklig originalitet tillförts – var därför tydlig med vem som är upphovsperson till den examinerade prestationen.</p>
+                <p>GDPR – ställ tre frågor innan du använder ett verktyg: (1) Vilken är den rättsliga grunden för behandlingen? (2) Sker överföring utanför EU/EES och hur skyddas den? (3) Används inmatade data för att träna leverantörens modeller? Minimera personuppgifter i prompts och använd endast godkända lösningar för studentdata.</p>
+                <p>AI-förordningen (översiktlig tolkning för undervisning): Automatiserade system som bedömer studenter kan omfattas av skärpta krav. Håll människan i loopen i bedömning och var transparent med AI-användning. Undvik helautomatiserad betygsättning och problematisk övervakning; säkerställ spårbarhet och möjlighet till mänsklig omprövning.</p>
+            </div>
+        </div>
+
+        <h3>7.1 Dataskydd (GDPR)</h3>
+        <p>Två principer räcker långt: ladda inte upp studentuppgifter i icke-upphandlade tjänster och använd endast godkända verktyg för hantering av studentdata. När personuppgifter behöver behandlas, säkerställ att lösningen uppfyller kraven på lagring, åtkomst och geografisk placering. Överföring utanför EU/EES kräver särskilda skyddsåtgärder.</p>
+        <p>Mer information: [Länk till dataskyddssida] · [Länk till lista över godkända verktyg]</p>
+
+        <h3>7.2 Upphovsrätt</h3>
+        <p>Studenters inlämnade arbeten omfattas av upphovsrätt. De får inte användas för modellträning eller publicering utan tillstånd. AI-genererat material behöver väsentlig mänsklig bearbetning för att säkert bära upphovsrätt – tydliggör därför för studenter vad som bedöms som deras eget.</p>
+
+        <h3>7.3 Rättvisa och likvärdighet</h3>
+        <p>Om AI-stöd krävs i ett moment ska tillgången vara kostnadsfri och likvärdig. Ställ inte krav på premiumkonton som studenter själva bekostar. Om gratis- och betalversion ger olika resultat: specificera tillåten version eller tillhandahåll licens. Erbjud alternativa lösningar för studenter med särskilda behov; språkstöd via AI ersätter inte beviljade stödåtgärder.</p>
+
+        <h3>7.4 Misstänkt vilseledande</h3>
+        <div class="warning-box">
+            <p>Om AI-detektering: Automatiska ”AI-detektorer” är opålitliga och ska inte utgöra ensam grund för åtgärd. Bygg i stället ärenden på processunderlag och muntlig uppföljning.</p>
+        </div>
+        <p>Den starkaste indikatorn är en tydlig diskrepans mellan ett välformulerat skriftligt arbete och en student som har svårt att förklara sina resonemang muntligt. Andra signaler är referenser som inte existerar eller innehåll långt utanför kursens ramar. Följ gällande rutiner om misstanke uppstår och använd dokumentation från processen som underlag.</p>
+
+        <h2>8. Snabbstart: Tre konkreta åtgärder</h2>
+        <div class="tip-box">
+            <h4>1. Muntlig uppföljning</h4>
+            <p>Cirka 10 minuter per student eller grupp (stickprov räcker långt) ger tydlig effekt.</p>
+        </div>
+        <div class="tip-box">
+            <h4>2. Ändringslogg</h4>
+            <p>Låt studenten kort beskriva vad som ändrats mellan utkast och slutversion – och varför.</p>
+        </div>
+        <div class="tip-box">
+            <h4>3. Kontextualisera uppgiften</h4>
+            <p>Förankra i kursens material, lokala data eller studentens praktik för att belöna förståelse.</p>
+        </div>
+
+        <h2>9. Checklista inför nästa kursomgång</h2>
+        <div class="checklist">
+            <div class="checklist-item">AI-villkor per moment (nivå 1–4) och tydlig AI-deklaration?</div>
+            <div class="checklist-item">Processbedömning (milstolpar, loggar, muntlig uppföljning) – inte bara slutprodukt?</div>
+            <div class="checklist-item">Uppgifter förankrade i kursens kontext (case/data/labb/praktik)?</div>
+            <div class="checklist-item">Integritet (GDPR) och likvärdighet säkerställda? Verktyg godkända?</div>
+            <div class="checklist-item">Alignment med lärandemål och bedömningskriterier?</div>
+            <div class="checklist-item">Reglerna genomgångna i kursstart och skriftligen i kurs-PM?</div>
+            <div class="checklist-item">Frågor testade i en AI och vid behov omdesignade?</div>
+        </div>
+
+        <h2>10. Vanliga frågor</h2>
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Måste vi använda AI i undervisningen?"</h3><span class="expandable-icon">+</span></div>
+            <div class="expandable-content"><p>Nej. Men studenter gör det och behöver förstå när och hur tekniken kan – och inte bör – användas. Att ignorera AI skapar en artificiell lärmiljö.</p></div>
+        </div>
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Kan jag lita på AI-detektorer?"</h3><span class="expandable-icon">+</span></div>
+            <div class="expandable-content"><p>Inte som ensamt bevis. Arbeta med processunderlag och kort muntlig uppföljning. Följ gällande rutiner vid misstanke.</p></div>
+        </div>
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Ökar inte arbetsbördan?"</h3><span class="expandable-icon">+</span></div>
+            <div class="expandable-content"><p>I början kan det kräva viss omdesign. Använd återanvändbara mallar, kamratrespons och korta uppföljningar – vinsten är bättre validitet och färre ärenden om vilseledande.</p></div>
+        </div>
+        <div class="expandable">
+            <div class="expandable-header" onclick="toggleExpand(this)"><h3>"Är detta rättssäkert?"</h3><span class="expandable-icon">+</span></div>
+            <div class="expandable-content"><p>Ja, under förutsättning att ramarna är tydliga och lika för alla, att processen dokumenteras och att bedömningen prövar det som anges i kursmålen. Håll människan i loopen i bedömningen.</p></div>
+        </div>
+
+        <div class="contact-box">
+            <h3>Stöd och kontakt</h3>
+            <p>Pedagogiskt stöd erbjuder kollegialt stöd, workshoppar och exempel på AI-anpassade uppgifter. Förankra förändringar med programansvarig, samverka med IT/dataskydd kring verktyg och GDPR, och koordinera med studieadministration kring information och schemaläggning.</p>
+        </div>
+
+        <footer>
+            <p><strong>Version 1.1</strong> | Denna vägledning uppdateras löpande.</p>
+            <p>Dokumentet är ett praktiskt stöd för lärare och examinatorer och kompletterar formella riktlinjer.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleExpand(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.expandable-icon');
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.textContent = '+';
+            } else {
+                content.classList.add('active');
+                icon.textContent = '−';
+            }
+        }
+        window.addEventListener('beforeprint', () => {
+            document.querySelectorAll('.expandable-content').forEach(c => c.classList.add('active'));
+        });
+    </script>
+
+    <!-- Inbäddad Microsoft Forms (feedback utan inloggning för läsaren) -->
+    <div style="max-width:900px;margin:20px auto 0;">
+        <iframe width="640px" height="480px" src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__VyaWaNUNzZPM0oxWlhDRjhGVDBRQUEzOUlTTkZTRS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+    </div>
+</body>
+</html>
